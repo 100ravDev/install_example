@@ -22,30 +22,30 @@
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
-  <script>
-    let deferredPrompt = null;
-    window.addEventListner('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
+<!--  <script>-->
+<!--    let deferredPrompt = null;-->
+<!--    window.addEventListner('beforeinstallprompt', (e) => {-->
+<!--      e.preventDefault();-->
+<!--      deferredPrompt = e;-->
 
-      window.dispatchEvent(new Event('pwa-install-available'));
-    });
+<!--      window.dispatchEvent(new Event('pwa-install-available'));-->
+<!--    });-->
 
-    window.addEventListener('appinstalled', () => {
-      deferredPrompt = null;
-      window.dispatchEvent(new Event('pwa-installed'));
-    });
+<!--    window.addEventListener('appinstalled', () => {-->
+<!--      deferredPrompt = null;-->
+<!--      window.dispatchEvent(new Event('pwa-installed'));-->
+<!--    });-->
 
-    window.triggerPwaInstall = async function() {
-      if (!deferredPrompt) return 'unavailable'
+<!--    window.triggerPwaInstall = async function() {-->
+<!--      if (!deferredPrompt) return 'unavailable'-->
 
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      return outcome;
-    }
+<!--      deferredPrompt.prompt();-->
+<!--      const { outcome } = await deferredPrompt.userChoice;-->
+<!--      deferredPrompt = null;-->
+<!--      return outcome;-->
+<!--    }-->
 
-    window.isPwaInstallable = () => deferredPrompt !== null;
-  </script>
+<!--    window.isPwaInstallable = () => deferredPrompt !== null;-->
+<!--  </script>-->
 </body>
 </html>
